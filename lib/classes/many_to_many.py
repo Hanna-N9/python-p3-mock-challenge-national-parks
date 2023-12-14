@@ -22,10 +22,12 @@ class NationalPark:
     def visitors(self):
         return list({trip.visitor for trip in self.trips()})
 
+    #Aggregate and Association Methods
     #Returns the total number of times a park has been visited, Returns 0 if the park has no visits
     def total_visits(self):
         return len(self.trips())
     
+    #Aggregate and Association Methods
     #Returns the Visitor instance that has visited that park the most, Returns None if the park has no visitors
     def best_visitor(self):
         return max(set(self.visitors()), key = self.visitors().count)
@@ -62,7 +64,8 @@ class Trip:
     def end_date(self, end_date):
         if isinstance(end_date, str) and len(end_date) >= 7:
             self._end_date = end_date
-            
+    
+    #Returns the Visitor object for that trip, Must be of type Visitor        
     @property
     def visitor(self):
         return self._visitor
@@ -72,6 +75,7 @@ class Trip:
         if isinstance(visitor, Visitor):
             self._visitor = visitor
 
+    #Returns the NationalPark object for that trip, Must be of type NationalPark
     @property
     def national_park(self):
         return self._national_park
@@ -111,6 +115,7 @@ class Visitor:
     def national_parks(self):
         return list({trip.national_park for trip in self.trips()})
     
+    #Aggregate and Association Methods
     #Returns the total number of times a visitor visited the park passed in as argument, Returns 0 if the visitor has never visited the park
     def total_visits_at_park(self, park):
         if park.visitors():
