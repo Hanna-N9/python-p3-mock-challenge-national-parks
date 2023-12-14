@@ -17,7 +17,7 @@ class NationalPark:
     #Returns a list of all trips at a particular national park, Trips must be of type Trip    
     def trips(self):
         return [trip for trip in Trip.all if trip.national_park == self]
-    
+
     #Returns a unique list of all visitors a particular national park has welcomed, Visitors must be of type Visitor
     def visitors(self):
         return list({trip.visitor for trip in self.trips()})
