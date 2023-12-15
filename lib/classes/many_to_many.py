@@ -31,8 +31,9 @@ class NationalPark:
     
     #Aggregate and Association Methods
     #Returns the Visitor instance that has visited that park the most, Returns None if the park has no visitors
-    def best_visitor(self):    
-        return max(set(self.visitors()), key = self.visitors().count)
+    def best_visitor(self):   
+        visitors = [trip.visitor for trip in self.trips()] 
+        return max(set(visitors), key=visitors.count)
 
 
 
