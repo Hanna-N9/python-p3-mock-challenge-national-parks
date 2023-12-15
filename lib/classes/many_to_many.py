@@ -25,7 +25,7 @@ class NationalPark:
         return list({trip.visitor for trip in self.trips()})
 
     #Aggregate and Association Methods
-    #Returns the total number of times a park has been visited, Returns 0 if the park has no visits
+    #Receives a NationalPark object as argument, Returns the total number of times a park has been visited, Returns 0 if the park has no visits
     def total_visits(self):
         return len(self.trips())
     
