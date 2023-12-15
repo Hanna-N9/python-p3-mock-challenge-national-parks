@@ -65,6 +65,7 @@ class Trip:
         if isinstance(end_date, str) and len(end_date) >= 7:
             self._end_date = end_date
     
+    #Object Relationship Methods and Properties
     #Returns the Visitor object for that trip, Must be of type Visitor        
     @property
     def visitor(self):
@@ -75,6 +76,7 @@ class Trip:
         if isinstance(visitor, Visitor):
             self._visitor = visitor
 
+    #Object Relationship Methods and Properties
     #Returns the NationalPark object for that trip, Must be of type NationalPark
     @property
     def national_park(self):
@@ -107,10 +109,12 @@ class Visitor:
         if isinstance(name, str) and 1 <= len(name) <= 15:
             self._name = name
     
+    #Object Relationship Methods and Properties
     #Returns a list of all trips for that visitor, Trips must be of type Trip       
     def trips(self):
         return [trip for trip in Trip.all if trip.visitor == self]
 
+    #Object Relationship Methods and Properties
     #Returns a unique list of all parks that visitor has visited, Parks must be of type NationalPark
     def national_parks(self):
         return list({trip.national_park for trip in self.trips()})
